@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cookies | CauceVial</title>
+    <meta name="description" content="Política de cookies de CauceVial. Guía educativa gratuita sobre movilidad vial y seguridad vial en Colombia.">
+    <meta name="theme-color" content="#1b4332">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://caucevial.lat/politicas-cookies.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --color-primario: #1b4332; --color-primario-claro: #2d6a4f;
+            --color-secundario: #52b788; --color-acento: #74c69d;
+            --color-peligro: #e17055; --color-texto: #1b2e26;
+            --color-texto-suave: #4f6b5e; --color-fondo: #ffffff;
+            --color-fondo-alt: #f1f8f4; --color-borde: #d3e6db;
+            --color-tarjeta: #ffffff; --sombra: 0 4px 24px rgba(27, 67, 50, 0.06);
+            --sombra-fuerte: 0 12px 48px rgba(27, 67, 50, 0.12);
+            --radio: 16px; --radio-sm: 10px; --max-ancho: 1200px;
+            --transicion: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --fuente: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        body { font-family: var(--fuente); color: var(--color-texto); background: var(--color-fondo); line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased; }
+        .contenedor { width: 100%; max-width: var(--max-ancho); margin: 0 auto; padding: 0 24px; }
+
+        /* COOKIES */
+        .cookie-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px); z-index: 9998; display: none; }
+        .cookie-overlay.visible { display: block; }
+        .cookie-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 20px; z-index: 9999; }
+        .cookie-modal.visible { display: flex; }
+        .cookie-caja { background: var(--color-primario); width: 100%; max-width: 520px; padding: 40px 36px; border-radius: var(--radio); box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35); text-align: center; border: 2px solid var(--color-acento); animation: cookieAnim 0.45s ease; color: #ffffff; }
+        @keyframes cookieAnim { from { transform: scale(0.92) translateY(24px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+        .cookie-caja h2 { font-size: 1.6rem; margin-bottom: 14px; color: #fff; font-weight: 800; letter-spacing: -0.02em; }
+        .cookie-caja p { font-size: 0.95rem; color: #d8f0e4; margin-bottom: 28px; line-height: 1.7; }
+        .cookie-caja p a { color: var(--color-acento); font-weight: 700; text-decoration: underline; }
+        .cookie-acciones { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .cookie-acciones .boton { padding: 14px 36px; border: none; border-radius: 50px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all var(--transicion); min-width: 150px; font-family: var(--fuente); }
+        .cookie-acciones .boton.aceptar { background: var(--color-acento); color: var(--color-primario); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); }
+        .cookie-acciones .boton.aceptar:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3); }
+        .cookie-acciones .boton.rechazar { background: transparent; color: #fff; border: 2px solid rgba(255, 255, 255, 0.5); }
+        .cookie-acciones .boton.rechazar:hover { background: rgba(255, 255, 255, 0.12); border-color: #fff; transform: translateY(-3px); }
+        body.cookie-bloqueado { overflow: hidden; }
+        .contenido-principal { display: none; }
+        .contenido-principal.visible { display: block; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* HEADER */
+        .cabecera { position: sticky; top: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(27, 67, 50, 0.06); z-index: 1000; }
+        .barra-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: var(--max-ancho); margin: 0 auto; }
+        .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.2rem; color: var(--color-primario); text-decoration: none; }
+        .logo-icono { width: 42px; height: 42px; background: var(--color-primario); color: #fff; border-radius: 12px; display: grid; place-items: center; font-size: 1.2rem; }
+        .menu { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; align-items: center; }
+        .menu a { color: var(--color-texto); padding: 8px 16px; border-radius: var(--radio-sm); font-size: 0.9rem; font-weight: 600; transition: all var(--transicion); text-decoration: none; }
+        .menu a:hover { background: var(--color-fondo-alt); color: var(--color-primario); }
+        .menu a.activo { color: var(--color-primario); }
+        .boton-menu { display: none; background: none; border: 2px solid var(--color-borde); border-radius: var(--radio-sm); padding: 8px 12px; cursor: pointer; font-size: 1.3rem; color: var(--color-primario); }
+
+        /* FRANJA */
+        .franja-valores { background: var(--color-secundario); color: #1b4332; padding: 10px 0; text-align: center; font-weight: 700; font-size: 0.85rem; }
+
+        /* CONTENIDO */
+        .seccion { padding: 70px 0; }
+        h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 12px; }
+        h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; margin: 32px 0 12px; color: var(--color-primario); }
+        h3 { font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; color: var(--color-primario-claro); }
+        p { margin: 0 0 1rem; color: var(--color-texto-suave); }
+        ul { margin: 0 0 1rem 1.2rem; color: var(--color-texto-suave); }
+        li { margin-bottom: 6px; }
+        .aviso { border-radius: var(--radio); padding: 22px 28px; border-left: 6px solid var(--color-secundario); background: #eaf5ef; margin: 24px 0; }
+        .aviso.exito { border-left-color: var(--color-primario); background: #e3f1e8; }
+        .aviso.info { border-left-color: var(--color-acento); background: #f0f7ff; }
+        .tabla-cookies { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; border-radius: var(--radio); overflow: hidden; box-shadow: var(--sombra); }
+        .tabla-cookies th, .tabla-cookies td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--color-borde); font-size: 0.9rem; }
+        .tabla-cookies th { background: var(--color-fondo-alt); color: var(--color-primario); font-weight: 700; }
+        .tabla-cookies tr:last-child td { border-bottom: none; }
+
+        /* PIE */
+        .pie { background: var(--color-primario); color: rgba(255, 255, 255, 0.85); padding: 60px 0 28px; }
+        .pie a { color: #fff; transition: opacity var(--transicion); text-decoration: none; }
+        .pie a:hover { opacity: 0.7; }
+        .pie-rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 32px; }
+        .pie h4 { color: #fff; margin-bottom: 14px; }
+        .pie p { color: rgba(255, 255, 255, 0.7); }
+        .pie ul { list-style: none; padding: 0; margin: 0; }
+        .pie ul li { margin-bottom: 6px; }
+        .pie-legal { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; font-size: 0.85rem; text-align: center; color: rgba(255, 255, 255, 0.5); }
+        .pie-legal a { color: rgba(255, 255, 255, 0.7); margin: 0 8px; }
+        .pie-legal a:hover { color: #fff; }
+
+        /* RESPONSIVE */
+        @media (max-width: 860px) {
+            .boton-menu { display: block; }
+            .menu { position: absolute; top: 70px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: #fff; border-bottom: 1px solid var(--color-borde); padding: 12px 20px; display: none; box-shadow: var(--sombra-fuerte); }
+            .menu.abierto { display: flex; }
+            .menu a { padding: 12px 16px; }
+            .cookie-caja { padding: 32px 24px; }
+            .tabla-cookies { font-size: 0.8rem; }
+            .tabla-cookies th, .tabla-cookies td { padding: 10px 12px; }
+        }
+        @media (max-width: 480px) {
+            .cookie-caja { padding: 28px 20px; }
+            .cookie-acciones { flex-direction: column; }
+            .cookie-acciones .boton { width: 100%; min-width: unset; }
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18254896446"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-18254896446');
+        gtag('consent', 'default', { 'ad_storage': 'denied', 'analytics_storage': 'denied' });
+    </script>
+</head>
+<body class="cookie-bloqueado">
+
+    <!-- COOKIES -->
+    <div id="cookie-overlay" class="cookie-overlay visible"></div>
+    <div id="aviso-cookies" class="cookie-modal visible" role="dialog" aria-modal="true" aria-label="Aviso de cookies">
+        <div class="cookie-caja">
+            <h2>Aviso de cookies</h2>
+            <p>
+                Utilizamos cookies para mejorar tu experiencia, mostrar publicidad personalizada
+                y analizar el tráfico de forma anónima. Al aceptar, nos permites ofrecerte un contenido más relevante.
+                Puedes rechazar las cookies no esenciales en cualquier momento.
+                <br><br>
+                <a href="privacidad.html">Política de Privacidad</a> ·
+                <a href="politicas-cookies.html">Política de Cookies</a>
+            </p>
+            <div class="cookie-acciones">
+                <button class="boton rechazar" id="btn-rechazar-cookies">Rechazar</button>
+                <button class="boton aceptar" id="btn-aceptar-cookies">Aceptar cookies</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="contenido-principal" id="contenidoPrincipal">
+        <header class="cabecera">
+            <nav class="barra-nav" aria-label="Navegación principal">
+                <a href="index.html" class="logo"><span class="logo-icono">🧭</span><span>CauceVial</span></a>
+                <button class="boton-menu" id="botonMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+                <ul class="menu" id="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#que-es-movilidad">Movilidad</a></li>
+                    <li><a href="index.html#transporte-publico">Transporte</a></li>
+                    <li><a href="index.html#seguridad-vial">Seguridad</a></li>
+                    <li><a href="index.html#glosario">Glosario</a></li>
+                    <li><a href="index.html#faq">Preguntas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="franja-valores">📚 Guía 100% gratuita · Sin pagos · Sin donaciones · Contenido de libre acceso</div>
+
+        <main>
+            <section class="seccion">
+                <div class="contenedor">
+                    <h1>Política de Cookies</h1>
+                    <p><strong>Última actualización:</strong> 2026</p>
+
+                    <p>En CauceVial utilizamos cookies y tecnologías similares para mejorar tu experiencia de navegación, analizar el tráfico de forma anónima y, si nos das tu consentimiento, mostrar publicidad personalizada. Esta política explica qué son las cookies, qué tipos usamos y cómo puedes gestionarlas.</p>
+
+                    <h2>1. ¿Qué son las cookies?</h2>
+                    <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo (ordenador, tablet o móvil) cuando visitas un sitio web. Sirven para recordar información sobre tu visita, como tus preferencias de idioma o si ya has aceptado el aviso de cookies.</p>
+
+                    <h2>2. Tipos de cookies que utilizamos</h2>
+                    <table class="tabla-cookies">
+                        <thead>
+                            <tr><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Esenciales</td><td>Permiten el funcionamiento básico del sitio, como la navegación y el acceso a áreas seguras.</td><td>Sesión</td></tr>
+                            <tr><td>Analíticas</td><td>Nos ayudan a entender cómo los visitantes interactúan con el sitio (páginas más visitadas, tiempo de permanencia).</td><td>Hasta 2 años</td></tr>
+                            <tr><td>Publicitarias</td><td>Se usan para mostrar anuncios relevantes según tus intereses (solo si aceptas).</td><td>Hasta 2 años</td></tr>
+                            <tr><td>Preferencias</td><td>Recuerdan tus elecciones, como el idioma o la región.</td><td>Hasta 1 año</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>3. Cookies de terceros</h2>
+                    <p>Algunos servicios de terceros (como Google Analytics o Google Ads) pueden instalar cookies en tu dispositivo cuando visitas nuestro sitio. Estas cookies se rigen por las políticas de privacidad de dichos terceros.</p>
+
+                    <h2>4. ¿Cómo gestionar las cookies?</h2>
+                    <p>Puedes aceptar o rechazar las cookies no esenciales en el aviso que aparece al entrar al sitio. Además, puedes configurar tu navegador para bloquear o eliminar cookies:</p>
+                    <ul>
+                        <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios.</li>
+                        <li><strong>Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio.</li>
+                        <li><strong>Safari:</strong> Preferencias → Privacidad → Gestionar datos de sitios web.</li>
+                        <li><strong>Edge:</strong> Configuración → Cookies y permisos del sitio.</li>
+                    </ul>
+                    <p>Ten en cuenta que si bloqueas las cookies esenciales, algunas partes del sitio podrían no funcionar correctamente.</p>
+
+                    <h2>5. Consentimiento</h2>
+                    <p>Al pulsar “Aceptar cookies” en el aviso inicial, consientes el uso de cookies analíticas y publicitarias. Si pulsas “Rechazar”, solo se usarán las cookies esenciales necesarias para el funcionamiento del sitio.</p>
+
+                    <h2>6. Cambios en esta política</h2>
+                    <p>Podemos actualizar esta Política de Cookies para reflejar cambios en nuestras prácticas o por motivos legales. Te recomendamos revisarla periódicamente.</p>
+
+                    <h2>7. Contacto</h2>
+                    <p>Si tienes dudas sobre esta política, escríbenos a <a href="mailto:contacto@caucevial.lat" style="color:var(--color-primario);font-weight:700;">contacto@caucevial.lat</a>.</p>
+
+                    <div class="aviso info">
+                        <strong>Nota:</strong> CauceVial es una guía educativa sin ánimo de lucro. No vendemos productos ni procesamos pagos. Las cookies se usan únicamente con fines de mejora del sitio y, si se aceptan, publicidad.
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="pie">
+            <div class="contenedor">
+                <div class="pie-rejilla">
+                    <div><h4>🧭 CauceVial</h4><p>Guía educativa y gratuita sobre movilidad vial, transporte público en Colombia y seguridad vial.</p></div>
+                    <div><h4>Temas principales</h4><ul><li><a href="index.html#que-es-movilidad">Movilidad vial</a></li><li><a href="index.html#transporte-publico">Transporte público</a></li><li><a href="index.html#seguridad-vial">Seguridad vial</a></li><li><a href="index.html#glosario">Glosario</a></li></ul></div>
+                    <div><h4>Información legal</h4><ul><li><a href="privacidad.html">Política de Privacidad</a></li><li><a href="politicas-cookies.html">Política de Cookies</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+                    <div><h4>Contacto</h4><ul><li>📧 <a href="mailto:contacto@caucevial.lat">contacto@caucevial.lat</a></li><li>📞 Emergencias: 123</li></ul></div>
+                </div>
+                <div class="pie-legal">
+                    <p>© 2026 CauceVial — Todos los derechos reservados.</p>
+                    <p><a href="privacidad.html">Privacidad</a> · <a href="politicas-cookies.html">Cookies</a> · <a href="contacto.html">Contacto</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+            var overlay = document.getElementById('cookie-overlay');
+            var banner = document.getElementById('aviso-cookies');
+            var btnAceptar = document.getElementById('btn-aceptar-cookies');
+            var btnRechazar = document.getElementById('btn-rechazar-cookies');
+            var contenidoPrincipal = document.getElementById('contenidoPrincipal');
+
+            if (!overlay || !banner || !btnAceptar || !btnRechazar || !contenidoPrincipal) return;
+
+            overlay.classList.add('visible');
+            banner.classList.add('visible');
+            document.body.classList.add('cookie-bloqueado');
+
+            function mostrarContenido() {
+                overlay.classList.remove('visible');
+                banner.classList.remove('visible');
+                document.body.classList.remove('cookie-bloqueado');
+                contenidoPrincipal.classList.add('visible');
+            }
+            btnAceptar.addEventListener('click', function() {
+                mostrarContenido();
+                if (typeof gtag !== 'undefined') gtag('consent', 'update', { 'ad_storage': 'granted', 'analytics_storage': 'granted' });
+            });
+            btnRechazar.addEventListener('click', function() {
+                mostrarContenido();
+                if (typeof gtag !== 'undefined') gtag('consent', 'update', { 'ad_storage': 'denied', 'analytics_storage': 'denied' });
+            });
+
+            var botonMenu = document.getElementById('botonMenu');
+            var menu = document.getElementById('menu');
+            if (botonMenu && menu) {
+                botonMenu.addEventListener('click', function() {
+                    var abierto = menu.classList.toggle('abierto');
+                    botonMenu.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+                });
+                menu.querySelectorAll('a').forEach(function(enlace) {
+                    enlace.addEventListener('click', function() {
+                        menu.classList.remove('abierto');
+                        botonMenu.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
